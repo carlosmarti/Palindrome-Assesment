@@ -1,0 +1,13 @@
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\bin\Debug\netcoreapp3.1\Pelindrome.exe
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\bin\Debug\netcoreapp3.1\Pelindrome.deps.json
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\bin\Debug\netcoreapp3.1\Pelindrome.runtimeconfig.json
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\bin\Debug\netcoreapp3.1\Pelindrome.runtimeconfig.dev.json
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\bin\Debug\netcoreapp3.1\Pelindrome.dll
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\bin\Debug\netcoreapp3.1\Pelindrome.pdb
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\obj\Debug\netcoreapp3.1\Pelindrome.csprojAssemblyReference.cache
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\obj\Debug\netcoreapp3.1\Pelindrome.AssemblyInfoInputs.cache
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\obj\Debug\netcoreapp3.1\Pelindrome.AssemblyInfo.cs
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\obj\Debug\netcoreapp3.1\Pelindrome.csproj.CoreCompileInputs.cache
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\obj\Debug\netcoreapp3.1\Pelindrome.dll
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\obj\Debug\netcoreapp3.1\Pelindrome.pdb
+C:\Users\carlos\Documents\C-Sharp\Pelindrome\obj\Debug\netcoreapp3.1\Pelindrome.genruntimeconfig.cache
