@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carlos\\Documents\\C-Sharp\\Pelindrome\\Pelindrome.csproj",
+      "projectUniqueName": "C:\\Users\\carlos\\Documents\\C-Sharp\\Palindrome-Assesment\\Pelindrome.csproj",
       "projectName": "Pelindrome",
-      "projectPath": "C:\\Users\\carlos\\Documents\\C-Sharp\\Pelindrome\\Pelindrome.csproj",
+      "projectPath": "C:\\Users\\carlos\\Documents\\C-Sharp\\Palindrome-Assesment\\Pelindrome.csproj",
       "packagesPath": "C:\\Users\\carlos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carlos\\Documents\\C-Sharp\\Pelindrome\\obj\\",
+      "outputPath": "C:\\Users\\carlos\\Documents\\C-Sharp\\Palindrome-Assesment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",

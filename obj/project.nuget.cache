@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RHS/FV8DzUjnkZJ8TAir6mEti1k6yvUNyn21tbbuZb0cfG2wDZd2cl7zTQqVatgMOQsyp3CxqvXxx5WG9LePCA==",
+  "dgSpecHash": "8cSuZveAvRE1PIImo06KWFd0IQqCKdtZdOXUbOyMFmhIr/P2kPVq+auO686JdjxkWIsSxQegM3sOzN1LHOXdkA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\carlos\\Documents\\C-Sharp\\Pelindrome\\Pelindrome.csproj",
+  "projectFilePath": "C:\\Users\\carlos\\Documents\\C-Sharp\\Palindrome-Assesment\\Pelindrome.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
