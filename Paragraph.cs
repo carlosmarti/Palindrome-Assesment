@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Text.RegularExpressions;
 
 /*
 A paragraph is a grouping of one or more sentences.
@@ -24,12 +24,17 @@ class Paragraph
         private int numOfPalinWords;
         private string sentence;
 
+        private bool palindrome;
+
         public int NumOfPalinWords { get{return numOfPalinWords;} set{ numOfPalinWords = value;} }
         public string SentenceGetSet {get{return sentence;} set{sentence = value;}} 
+
+        public bool Palindrome {get{return palindrome;} set{palindrome = value;}}
 
         public Sentence(string sentence)
         {
             SentenceGetSet = sentence;
+            palindrome = false;
 
             FindPalindromes();
         }
@@ -42,6 +47,9 @@ class Paragraph
         public void FindPalindromes()
         {
             string[] words = SentenceGetSet.Split();
+            string[] reversedWords = new string[words.Length];
+
+            //find the words that are palindrome
             for(int i = 0; i < words.Length; i++)
             {
                 //quick fix for a pesky problem where a space is considered a word
@@ -51,13 +59,23 @@ class Paragraph
 
                 //remove the problem if the first word in the sentence is capitalized
                 string word = words[i].ToLower();
-                
-                
-                if(word.Equals(reverse(word)))
+                reversedWords[(reversedWords.Length - 1) - i] = Reverse(word);
+
+                if(word.Equals(reversedWords[(reversedWords.Length - 1) - i]))
                 {
                     NumOfPalinWords += 1;
                 }
             }
+
+            //form a sentence from the reversed words
+            string reversedSentence = string.Join("", reversedWords);
+
+            //check if the sentence is a palindrome
+            string trimed = Regex.Replace(SentenceGetSet, @"\s+", "");
+            Console.WriteLine(trimed);
+            if(trimed.ToLower().Equals(reversedSentence))
+                Palindrome = true;
+
         }
 
         /*
@@ -69,7 +87,7 @@ class Paragraph
                 a new string with the reversed word.
             </return>
         */
-        private string reverse(string word)
+        private string Reverse(string word)
         {
             char[] wordCharArr = word.ToCharArray();
             Stack<char> arrOfChar = new Stack<char>();
@@ -137,6 +155,19 @@ class Paragraph
         foreach(var sent in sentences)
         {
             amount += sent.NumOfPalinWords;
+        }
+
+        return amount;
+    }
+
+    public int GetNumOfPalinSentences()
+    {
+        var amount = 0;
+
+        foreach(var sent in sentences)
+        {
+            if(sent.Palindrome)
+                amount++;
         }
 
         return amount;

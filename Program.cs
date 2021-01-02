@@ -20,6 +20,7 @@ namespace Pelindrome
             Paragraph paragraph = new Paragraph(File.ReadAllText(path));
 
             Console.WriteLine("Total amount of palindrome words: {0}", paragraph.GetNumOfPalinWords());
+            Console.WriteLine("Total amount of palindrome sentences: {0}", paragraph.GetNumOfPalinSentences());
         }
     }
 }
