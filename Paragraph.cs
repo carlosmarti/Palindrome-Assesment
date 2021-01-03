@@ -23,13 +23,13 @@ class Paragraph
     {
         private int numOfPalinWords;
         private string sentence;
-
+        private List<string> words;
         private bool palindrome;
 
         public int NumOfPalinWords { get{return numOfPalinWords;} set{ numOfPalinWords = value;} }
-        public string SentenceGetSet {get{return sentence;} set{sentence = value;}} 
-
+        public string SentenceGetSet {get{return sentence;} set{sentence = value;}}
         public bool Palindrome {get{return palindrome;} set{palindrome = value;}}
+        public List<string> Words {get{return words;}}
 
         public Sentence(string sentence)
         {
@@ -41,38 +41,39 @@ class Paragraph
 
         /*
             <summary>
-                This method will check each word in the sentence for palindrome words.
+                This method will check each word in the sentence for palindrome words. As well as check if the sentence itself is a palindrome
             </summary>
         */
         public void FindPalindromes()
         {
-            string[] words = SentenceGetSet.Split();
-            string[] reversedWords = new string[words.Length];
+            words = new List<string>(SentenceGetSet.Split());
+            string[] reversedWords = new string[Words.Count];
 
-            //find the words that are palindrome
-            for(int i = 0; i < words.Length; i++)
-            {
-                //quick fix for a pesky problem where a space is considered a word
-                if(String.IsNullOrWhiteSpace(words[i]))
-                    continue;
-                
+            int count = 0;
+            Words.ForEach(delegate (string word){
 
-                //remove the problem if the first word in the sentence is capitalized
-                string word = words[i].ToLower();
-                reversedWords[(reversedWords.Length - 1) - i] = Reverse(word);
-
-                if(word.Equals(reversedWords[(reversedWords.Length - 1) - i]))
+                 //quick fix for a pesky problem where a space is considered a word
+                if(!String.IsNullOrWhiteSpace(word))
                 {
-                    NumOfPalinWords += 1;
+                    //remove the problem if the first word in the sentence is capitalized
+                    string lowerWord = word.ToLower();
+                    reversedWords[(reversedWords.Length - 1) - count] = Reverse(lowerWord);
+
+                    if(word.Equals(reversedWords[(reversedWords.Length - 1) - count]))
+                    {
+                        NumOfPalinWords += 1;
+                    }
                 }
-            }
+                
+                //increase count in order to go backwards through the array
+                count++;
+            });
 
             //form a sentence from the reversed words
             string reversedSentence = string.Join("", reversedWords);
 
             //check if the sentence is a palindrome
             string trimed = Regex.Replace(SentenceGetSet, @"\s+", "");
-            Console.WriteLine(trimed);
             if(trimed.ToLower().Equals(reversedSentence))
                 Palindrome = true;
 
@@ -148,7 +149,7 @@ class Paragraph
             the accumulated amount of words that are palindrome.
         </return>
     */
-    public int GetNumOfPalinWords()
+    public void ShowNumOfPalinWords()
     {
         var amount = 0;
 
@@ -157,10 +158,10 @@ class Paragraph
             amount += sent.NumOfPalinWords;
         }
 
-        return amount;
+        Console.WriteLine("Total amount of palindrome words: {0}", amount);
     }
 
-    public int GetNumOfPalinSentences()
+    public void ShowNumOfPalinSentences()
     {
         var amount = 0;
 
@@ -170,7 +171,60 @@ class Paragraph
                 amount++;
         }
 
-        return amount;
+        Console.WriteLine("Total amount of palindrome sentences: {0}", amount);
+    }
+
+    public void ShowUniqueWords()
+    {
+        List<string> uniqueWords = new List<string>();
+        string[] allWords;
+        int amountOfWords = 0;
+
+        foreach(var sentence in sentences)
+        {
+            amountOfWords += sentence.Words.Count;
+        }
+
+        allWords = new string[amountOfWords];
+
+        int index = 0;
+        foreach(var sentence in sentences)
+        {
+            sentence.Words.ForEach(delegate(string word)
+            {
+                allWords[index] = word;
+                index++;
+            });
+        }
+
+        for(int i = 0; i < allWords.Length; i++)
+        {
+            string word = allWords[i];
+            bool found = false;
+
+            for(int j = 0; j < allWords.Length; j++)
+            {
+                if(i == j)
+                    continue;
+                
+                if(allWords[j].Equals(allWords[i]))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+                uniqueWords.Add(allWords[i]);
+        }
+
+        //Output the result of unique words and how much there are
+        Console.WriteLine("Unique words:");
+        uniqueWords.ForEach(delegate(string word){
+
+            Console.WriteLine(word);
+        });
+        Console.WriteLine("Number of unique words: {0}",uniqueWords.Count);
     }
 
     public string GetParagraph()
