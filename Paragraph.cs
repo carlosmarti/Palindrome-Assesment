@@ -227,6 +227,34 @@ class Paragraph
         Console.WriteLine("Number of unique words: {0}",uniqueWords.Count);
     }
 
+    public void ShowWordsWithLetter(char letter)
+    {
+        List<string> matchingWords = new List<string>();
+
+        foreach(var sentence in sentences)
+        {
+            sentence.Words.ForEach(delegate(string word){
+
+                if(word.Contains(letter))
+                    matchingWords.Add(word);
+            });
+        }
+
+        Console.WriteLine("Words that contain the letter " + letter + ": ");
+        if(matchingWords.Count == 0)
+        {
+            Console.WriteLine("None");
+        }
+        else
+        {
+            matchingWords.ForEach(delegate(string word){
+
+            Console.WriteLine(word + " ");
+            });
+        }
+        
+    }
+
     public string GetParagraph()
     {
         return paragraph;

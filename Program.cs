@@ -9,7 +9,7 @@ namespace Pelindrome
         static void Main(string[] args)
         {
             bool goodChar = false;
-            char letter;
+            char letter = ' ';
 
             //Provide directory of where the txt file is located
             var path = @"C:\Users\carlos\Documents\C-Sharp\Palindrome-Assesment\paragraph.txt";
@@ -45,6 +45,7 @@ namespace Pelindrome
             paragraph.ShowNumOfPalinWords();
             paragraph.ShowNumOfPalinSentences();
             paragraph.ShowUniqueWords();
+            paragraph.ShowWordsWithLetter(letter);
         }
     }
 }
