@@ -1,2 +1,4 @@
 # Palindrome-Assesment
-A program that will search for words that are palindrome and accepts a letter from the user in order to look for words that contain that letter
+A program that will break down a paragraph. Search for words that are palindrome and output to console how many there are. Check if a sentence itself is a palindrome and output the amount out to console. Program will look for unique words in the paragraph and show them in a list to the console. At the start of the of program user will be asked to input a letter. This letter will be used to find words that contain the given letter and output a list of words to console.
+
+In order to get started with this program paragraph.txt must be populated with your paragraph. There are three dummy sentences inside of paragraph.txt file if you choose to run the program without a paragraph of your own. A minor adjustment must be made inside of Program.cs on line 15. Where you must insert your directory to the cloned project.
