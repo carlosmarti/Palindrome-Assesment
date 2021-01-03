@@ -39,7 +39,7 @@ namespace Pelindrome
             }
 
 
-            //Now that file has been confirmed to exist whe can pass in the contents into the paragraph class
+            //Now that file has been confirmed to exist and user has given proper letter.We can pass in the contents into the paragraph class
             Paragraph paragraph = new Paragraph(File.ReadAllText(path));
 
             paragraph.ShowNumOfPalinWords();

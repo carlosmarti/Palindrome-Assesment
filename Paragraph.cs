@@ -235,7 +235,7 @@ class Paragraph
                 if(index == j)
                     continue;
                 
-                if(allWords[j].Equals(allWords[index]))
+                if(allWords[j].ToLower().Equals(allWords[index]))
                 {
                     found = true;
                     break;
