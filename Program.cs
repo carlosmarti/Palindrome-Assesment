@@ -12,7 +12,7 @@ namespace Pelindrome
             char letter = 'y';
 
             //Provide directory of where the txt file is located
-            var path = @"C:\Users\carlos\Documents\C-Sharp\Palindrome-Assesment\paragraph.txt";
+            var path = @"your-directory\Palindrome-Assesment\paragraph.txt";
 
             //check if file is in directory 
             if(!File.Exists(path))
