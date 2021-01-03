@@ -6,8 +6,8 @@ using System.Text.RegularExpressions;
 A paragraph is a grouping of one or more sentences.
 
 <summary>
-This class will hold the paragraph data. Break the paragraph into sentences and store the data into a list. 
-This class holds an inner class that will represent the sentences.
+    This class will hold the paragraph data. Break the paragraph into sentences and store the data into a list. 
+    This class holds an inner class that will represent the sentences.
 </summary>
 */
 class Paragraph
@@ -16,11 +16,12 @@ class Paragraph
     A sentence is a set of words that is complete in itself.
 
     <summary>
-    The Sentence class will search through each if it's a palindrome. Once palindromes are found keeps track of how many there are.
+        The Sentence class will search through each if it's a palindrome. Once palindromes are found keeps track of how many there are.
     </summary>
     */
     class Sentence
     {
+        //Member Variables
         private int numOfPalinWords;
         private string sentence;
         private List<string> words;
@@ -31,6 +32,11 @@ class Paragraph
         public bool Palindrome {get{return palindrome;} set{palindrome = value;}}
         public List<string> Words {get{return words;}}
 
+        /*
+            <summary>
+                Constructor for the Sentence class
+            </summary>
+        */
         public Sentence(string sentence)
         {
             SentenceGetSet = sentence;
@@ -41,7 +47,7 @@ class Paragraph
 
         /*
             <summary>
-                This method will check each word in the sentence for palindrome words. As well as check if the sentence itself is a palindrome
+                This method will check each word in the sentence for palindrome words. As well as check if the sentence itself is a palindrome.
             </summary>
         */
         public void FindPalindromes()
@@ -110,9 +116,15 @@ class Paragraph
         }
     }
 
+    //Member Variable for Paragraph
     private List<Sentence> sentences;
     private string paragraph;
 
+    /*
+        <summary>
+            Constructor for the Paragraph class.
+        </summary>
+    */
     public Paragraph(string paragraph)
     {
         this.paragraph = paragraph;
@@ -161,6 +173,11 @@ class Paragraph
         Console.WriteLine("Total amount of palindrome words: {0}", amount);
     }
 
+    /*
+        <summary>
+            This method accumulates how many sententences are palindrome and prints to console the result.
+        </summary>
+    */
     public void ShowNumOfPalinSentences()
     {
         var amount = 0;
@@ -174,19 +191,29 @@ class Paragraph
         Console.WriteLine("Total amount of palindrome sentences: {0}", amount);
     }
 
+    /*
+        <summary>
+            This method accumulates all of the words inside of each sentence into an array a called allWords. From that array each word is compared
+            with the rest of the words in allWords. Those words that only appear once will be stored into a list called uniqueWords. Print out to console
+            the result.
+        </summary>
+    */
     public void ShowUniqueWords()
     {
         List<string> uniqueWords = new List<string>();
         string[] allWords;
         int amountOfWords = 0;
 
+        //store the amount of words in each sentence
         foreach(var sentence in sentences)
         {
             amountOfWords += sentence.Words.Count;
         }
 
+        //create the array with proper size
         allWords = new string[amountOfWords];
 
+        //store each word of the sentence into the array
         int index = 0;
         foreach(var sentence in sentences)
         {
@@ -197,17 +224,18 @@ class Paragraph
             });
         }
 
-        for(int i = 0; i < allWords.Length; i++)
+        //go through each word in allWords array and compare it to all of the other words inside of the array
+        for(index = 0; index < allWords.Length; index++)
         {
-            string word = allWords[i];
+            string word = allWords[index];
             bool found = false;
 
             for(int j = 0; j < allWords.Length; j++)
             {
-                if(i == j)
+                if(index == j)
                     continue;
                 
-                if(allWords[j].Equals(allWords[i]))
+                if(allWords[j].Equals(allWords[index]))
                 {
                     found = true;
                     break;
@@ -215,7 +243,7 @@ class Paragraph
             }
 
             if(!found)
-                uniqueWords.Add(allWords[i]);
+                uniqueWords.Add(allWords[index]);
         }
 
         //Output the result of unique words and how much there are
@@ -227,6 +255,14 @@ class Paragraph
         Console.WriteLine("Number of unique words: {0}",uniqueWords.Count);
     }
 
+    /*
+        <summary>
+            This method will go through all of the words in the paragraph and see if the word contains the letter passed in.
+        </summary>
+        <param name="letter">
+            A char passed in by the user.
+        </param>
+    */
     public void ShowWordsWithLetter(char letter)
     {
         List<string> matchingWords = new List<string>();
@@ -255,6 +291,14 @@ class Paragraph
         
     }
 
+    /*
+        <summary>
+            This method returns back the paragraph given.
+        </summary>
+        <returns>
+            The paragraph in its entirety.
+        </returns>
+    */
     public string GetParagraph()
     {
         return paragraph;
