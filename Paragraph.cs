@@ -227,7 +227,7 @@ class Paragraph
         //go through each word in allWords array and compare it to all of the other words inside of the array
         for(index = 0; index < allWords.Length; index++)
         {
-            string word = allWords[index];
+            string word = allWords[index].ToLower();
             bool found = false;
 
             for(int j = 0; j < allWords.Length; j++)
@@ -235,7 +235,7 @@ class Paragraph
                 if(index == j)
                     continue;
                 
-                if(allWords[j].ToLower().Equals(allWords[index]))
+                if(allWords[j].ToLower().Equals(word))
                 {
                     found = true;
                     break;
@@ -243,7 +243,7 @@ class Paragraph
             }
 
             if(!found)
-                uniqueWords.Add(allWords[index]);
+                uniqueWords.Add(word);
         }
 
         //Output the result of unique words and how much there are

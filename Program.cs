@@ -9,7 +9,7 @@ namespace Pelindrome
         static void Main(string[] args)
         {
             bool goodChar = false;
-            char letter = ' ';
+            char letter = 'y';
 
             //Provide directory of where the txt file is located
             var path = @"C:\Users\carlos\Documents\C-Sharp\Palindrome-Assesment\paragraph.txt";
